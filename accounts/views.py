@@ -28,7 +28,11 @@ def home(request):
 
 
 def sign_up(request):
-
+    """
+    New User Creation View
+    :param request:
+    :return:
+    """
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
@@ -44,12 +48,22 @@ def sign_up(request):
 
 
 def logout_user(request):
+    """
+    Logout View
+    :param request:
+    :return:
+    """
     logout(request)
     messages.info(request, "You have successfully logged out.")
     return redirect("accounts:home")
 
 
 def login_user(request):
+    """
+    Login View
+    :param request:
+    :return:
+    """
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -70,7 +84,13 @@ def login_user(request):
 
 
 @login_required(login_url='accounts:login')
-def delete_user(request, pk):
+def delete_user(request, pk: int):
+    """
+    Deletes a specific user from the database.
+    :param request:
+    :param pk: user object primary key
+    :return:
+    """
     try:
         u = User.objects.get(id=pk)
         u.delete()
