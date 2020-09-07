@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row my-4">
+    <div class="col-8">
+      <h3>LogIn</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form method="post" class="form-group">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-primary offset-md-5" type="submit">Submit</button><br>
+          <hr>
+        <p class="text-center">If you don't have an account. Please  <a href="{% url 'accounts:sign_up' %}">Sign up</a> instead.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+

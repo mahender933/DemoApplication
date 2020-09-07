@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title></title>
+        <!-- Include CSS CDN -->
+        {% include 'base/css.html' %}
+        {% block head %}{% endblock head %}
+    </head>
+    <body>
+      <!-- Include Navbar -->
+      {% include 'base/navbar.html'%}
+      <div class='container'>
+      <!-- Include Log Messages -->
+      {% include 'snippets/message.html' %}
+      {% block content %}{% endblock content %}
+    </div>
+        <!-- Include Js CDN-->
+        {% include 'base/js.html' %}
+        {% block js %} {% endblock js %}
+    </body>
+  </html>
